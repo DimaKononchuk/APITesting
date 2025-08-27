@@ -8,6 +8,7 @@ on:
 jobs:
   Reward:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -22,6 +23,7 @@ jobs:
   Promocode:
     needs: [Reward]
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -36,6 +38,7 @@ jobs:
   RandomBox:
     needs: [Reward, Promocode]
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -50,6 +53,7 @@ jobs:
   LuckyBox:
     needs: [Reward, Promocode, RandomBox]
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -64,6 +68,7 @@ jobs:
   GoldSeeker:
     needs: [Reward, Promocode, RandomBox, LuckyBox]
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -77,6 +82,7 @@ jobs:
   CashClash:
     needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker]
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -91,6 +97,7 @@ jobs:
   Payment:
     needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker,CashClash]
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
