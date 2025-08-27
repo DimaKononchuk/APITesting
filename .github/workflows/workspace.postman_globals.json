@@ -1,0 +1,105 @@
+{
+	"id": "f3b1d473-3716-4a57-8f84-d82a483ef435",
+	"values": [
+		{
+			"key": "env",
+			"value": "dev",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "------------------",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "TenantID",
+			"value": "a4ab8699-de66-49cc-a53b-4ec44f73186f",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ClientID",
+			"value": "de6a599d-102a-419c-b197-c35ae89c0008",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "ClientSecret",
+			"value": "W93ax1bdVOM32r.CHCT_79FLdF4.T.X759",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "scope",
+			"value": "api://questera-backend/access_as_user openid profile",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "-------------------------",
+			"value": "",
+			"type": "default",
+			"enabled": false
+		},
+		{
+			"key": "userAdminName",
+			"value": "qa.test@cybercube.gg",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "userAdminPassword",
+			"value": "$oo4iyp3S",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "----------------------",
+			"value": "",
+			"type": "default",
+			"enabled": false
+		},
+		{
+			"key": "userEmail",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "userEmail1",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "userPassword",
+			"value": "!Qazxsw2",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "",
+			"value": "",
+			"type": "default",
+			"enabled": false
+		},
+		{
+			"key": "game",
+			"value": "Dota2",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "userEmail3",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2025-08-27T11:49:48.436Z",
+	"_postman_exported_using": "Postman/11.60.2"
+}
