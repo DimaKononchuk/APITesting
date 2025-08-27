@@ -16,5 +16,6 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
-      - name: Run API tests
-        run: newman run postman/workspace_collection.json -e postman/environment.json
+      - name: Run API Reward test
+        run: newman run https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }} --folder "Reward" --globals workspace.postman_globals.json
+
