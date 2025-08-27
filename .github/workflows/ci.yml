@@ -6,7 +6,7 @@ on:
   workflow_dispatch:       # можна ще й руками запускати
 
 jobs:
-  job1:
+  Reward:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,7 +19,8 @@ jobs:
       - name: Run API Reward test
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Reward" --globals workspace.postman_globals.json
 
-  job2:
+  Promocode:
+    needs: [Reward]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,7 +33,8 @@ jobs:
       - name: Run API Promocode test
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Promocode" --globals workspace.postman_globals.json
 
-  job3:
+  RandomBox:
+    needs: [Reward, Promocode]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,7 +47,8 @@ jobs:
       - name: Run API Random Box test
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Random Box" --globals workspace.postman_globals.json
 
-  job4:
+  LuckyBox:
+    needs: [Reward, Promocode, RandomBox]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -58,7 +61,8 @@ jobs:
       - name: Run API Lucky Box test
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Lucky Box" --globals workspace.postman_globals.json
 
-  job5:
+  GoldSeeker:
+    needs: [Reward, Promocode, RandomBox, LuckyBox]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -70,7 +74,8 @@ jobs:
         run: npm install -g newman
       - name: Run API Gold Seeker test
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Gold Seeker" --globals workspace.postman_globals.json
-  job6:
+  CashClash:
+    needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -83,7 +88,8 @@ jobs:
       - name: Run API Cash Clash test
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Cash Clash" --globals workspace.postman_globals.json
 
-  job7:
+  Payment:
+    needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker,CashClash]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
