@@ -8,8 +8,8 @@ on:
 jobs:
   
 
-  CashClash:
-    # needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker]
+  Payment:
+    # needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker,CashClash]
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -20,8 +20,5 @@ jobs:
           node-version: '20'
       - name: Install Newman
         run: npm install -g newman
-      - name: Run API Cash Clash test
-        run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Cash Clash" --globals workspace.postman_globals.json
-
-
-  
+      - name: Run API Payment test
+        run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Payment" --globals workspace.postman_globals.json
