@@ -1,8 +1,6 @@
 name: Automated API tests using Postman CLI
 
 on:
-  schedule:
-    - cron: "0 6 * * *"   # кожного дня о 09:00 по Києву
   workflow_dispatch:       # можна ще й руками запускати
     inputs:                # 👈 всередині workflow_dispatch
       job:
@@ -11,7 +9,6 @@ on:
         default: "Reward"
         type: choice
         options:
-          - All
           - Reward
           - Promocode
           - RandomBox
@@ -36,7 +33,7 @@ jobs:
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Reward" --globals workspace.postman_globals.json
 
   Promocode:
-    needs: [Reward]
+    # needs: [Reward]
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.job == 'All' || github.event.inputs.job == 'Promocode' }}
     continue-on-error: true
@@ -52,7 +49,7 @@ jobs:
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Promocode" --globals workspace.postman_globals.json
 
   RandomBox:
-    needs: [Reward, Promocode]
+    # needs: [Reward, Promocode]
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.job == 'All' || github.event.inputs.job == 'RandomBox' }}
     continue-on-error: true
@@ -68,7 +65,7 @@ jobs:
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Random Box" --globals workspace.postman_globals.json
 
   LuckyBox:
-    needs: [Reward, Promocode, RandomBox]
+    # needs: [Reward, Promocode, RandomBox]
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.job == 'All' || github.event.inputs.job == 'LuckyBox' }}
     continue-on-error: true
@@ -84,7 +81,7 @@ jobs:
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Lucky Box" --globals workspace.postman_globals.json
 
   GoldSeeker:
-    needs: [Reward, Promocode, RandomBox, LuckyBox]
+    # needs: [Reward, Promocode, RandomBox, LuckyBox]
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.job == 'All' || github.event.inputs.job == 'GoldSeeker' }}
     continue-on-error: true
@@ -99,7 +96,7 @@ jobs:
       - name: Run API Gold Seeker test
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Gold Seeker" --globals workspace.postman_globals.json
   CashClash:
-    needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker]
+    # needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker]
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.job == 'All' || github.event.inputs.job == 'CashClash' }}
     continue-on-error: true
@@ -115,7 +112,7 @@ jobs:
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Cash Clash" --globals workspace.postman_globals.json
 
   Payment:
-    needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker,CashClash]
+    # needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker,CashClash]
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.job == 'All' || github.event.inputs.job == 'Payment' }}
     continue-on-error: true
