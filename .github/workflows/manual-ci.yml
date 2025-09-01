@@ -1,4 +1,4 @@
-name: Automated API tests using Postman CLI
+name: Automated API tests using Postman CLI (manual)
 
 on:
   workflow_dispatch:       # можна ще й руками запускати
