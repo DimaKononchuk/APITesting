@@ -8,7 +8,10 @@ on:
 jobs:
   Reward:
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     continue-on-error: true
+=======
+>>>>>>> 32da1617a43d65af6429b11270fc73c89d9ded2d
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -23,7 +26,10 @@ jobs:
   Promocode:
     needs: [Reward]
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     continue-on-error: true
+=======
+>>>>>>> 32da1617a43d65af6429b11270fc73c89d9ded2d
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -38,7 +44,10 @@ jobs:
   RandomBox:
     needs: [Reward, Promocode]
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     continue-on-error: true
+=======
+>>>>>>> 32da1617a43d65af6429b11270fc73c89d9ded2d
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -53,7 +62,10 @@ jobs:
   LuckyBox:
     needs: [Reward, Promocode, RandomBox]
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     continue-on-error: true
+=======
+>>>>>>> 32da1617a43d65af6429b11270fc73c89d9ded2d
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -68,7 +80,10 @@ jobs:
   GoldSeeker:
     needs: [Reward, Promocode, RandomBox, LuckyBox]
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     continue-on-error: true
+=======
+>>>>>>> 32da1617a43d65af6429b11270fc73c89d9ded2d
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -82,7 +97,6 @@ jobs:
   CashClash:
     needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker]
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -97,7 +111,10 @@ jobs:
   Payment:
     needs: [Reward, Promocode, RandomBox, LuckyBox, GoldSeeker,CashClash]
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     continue-on-error: true
+=======
+>>>>>>> 32da1617a43d65af6429b11270fc73c89d9ded2d
     steps:
       - uses: actions/checkout@v4
       - name: Install Node.js
@@ -107,4 +124,8 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
       - name: Run API Payment test
+<<<<<<< HEAD
         run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Payment" --globals workspace.postman_globals.json
+=======
+        run: newman run "https://api.postman.com/collections/33038645-27ddebd5-29f1-4977-a286-d0128bae9d4e?access_key=${{ secrets.POSTMAN_API_KEY }}" --folder "Payment" --globals workspace.postman_globals.json
+>>>>>>> 32da1617a43d65af6429b11270fc73c89d9ded2d
